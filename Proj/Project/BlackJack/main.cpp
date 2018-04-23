@@ -12,7 +12,9 @@
 #include <iomanip>      //Format Library
 #include <fstream>      //File Library
 #include <string.h>     //String Library
-using namespace std;   
+using namespace std; 
+
+
 int main(int argc, char** argv) {
     int choice;                         //to chose how many games the user would like to play
     float pctotal,dctotal;              //the total amount of value of he cards
