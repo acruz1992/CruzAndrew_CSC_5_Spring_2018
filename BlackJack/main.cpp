@@ -160,6 +160,23 @@ int main(int argc, char** argv) {
                         }
         }
         cout<<endl;
+        //possible outcomes of the points from under the 21 score to over the 21 score
+        {if(dctotal>21&&pctotal>21)
+            cout<<"Both of you lost";
+        else if (dctotal<=21&&pctotal>21)
+            cout<<"Dealer wins"<<endl;
+        else if (dctotal>21&&pctotal<=21)
+            cout<<name<<" wins"<<endl;
+        else if (dctotal<=21&&pctotal<=21&&pctotal==dctotal)
+            cout<<"Its a Draw"<<endl;
+        else if (dctotal<=21&&pctotal<=21&&pctotal>dctotal)
+            cout<<name<<" wins"<<endl;
+        else if (dctotal<=21&&pctotal<=21&&pctotal<dctotal)
+            cout<<"Dealer wins"<<endl;
+        }
+        cout<<endl;
+        cout<<"Press enter to continue."<<endl;
+        cin.get(ch);     
     }while(--choice>=1);
     return 0;
 }
