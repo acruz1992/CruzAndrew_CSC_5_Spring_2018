@@ -14,7 +14,7 @@
 #include <string.h>     //String Library
 using namespace std;   
 int main(int argc, char** argv) {
-   int choice;                         //to chose how many games the user would like to play
+    int choice;                         //to chose how many games the user would like to play
     float pctotal,dctotal;              //the total amount of value of he cards
     char ch;                            //to have the user press enter between card draws
     char hit;                           //to have the user draw a 3rd card
@@ -25,5 +25,39 @@ int main(int argc, char** argv) {
     cout<<"How many games would you like to play?: ";
     cin>>choice;
     cout<<endl;
+    do{                                 //do while loop for the number of games to play
+        cout<<name<<"'s hand:"<<endl;
+        int pcard1=(rand()%(14-2+1))+2;  //random dealer card 1
+        int pcard2=(rand()%(14-2+1))+2;  //random dealer card 2
+        switch (pcard1)
+                {
+                    case 11: cout<<setw(10)<<"Ace";
+                    break;
+                    case 12: cout<<setw(10)<<"Jack";
+                    break;
+                    case 13: cout<<setw(10)<<"Queen";
+                    break;
+                    case 14: cout<<setw(10)<<"King";
+                    break;
+                    default: cout<<setw(10)<<pcard1;
+                    break;
+                }
+                cout<<" and ";
+                switch (pcard2)
+                {
+                    case 11: cout<<"Ace";
+                    break;
+                    case 12: cout<<"Jack";
+                    break;
+                    case 13: cout<<"Queen";
+                    break;
+                    case 14: cout<<"King";
+                    break;
+                    default: cout<<pcard2;
+                    break;
+                }
+                cout<<endl;
+        
+    }while(--choice>=1);
     return 0;
 }
