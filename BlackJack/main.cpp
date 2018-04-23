@@ -6,7 +6,7 @@
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream>     //Input/Output Stream Library
 #include <cstdlib>      //Library set random number seed
 #include <ctime>        //Libary to seed the random number generator
 #include <iomanip>      //Format Library
@@ -94,6 +94,72 @@ int main(int argc, char** argv) {
                         }
                     }while ((!(hit=='n'||hit=='N'))||!pctotal>=21);
                 }
+        cout<<"Now the dealers turn."<<endl;
+        {
+        cout<<"Dealers hand: "<<endl;
+        int dcard1=(rand()%(14-2+1))+2;  //dealer card 1
+        int dcard2=(rand()%(14-2+1))+2;  //dealer card 2
+        switch (dcard1)
+                {
+                    case 11: cout<<setw(10)<<"Ace";
+                    break;
+                    case 12: cout<<setw(10)<<"Jack";
+                    break;
+                    case 13: cout<<setw(10)<<"Queen";
+                    break;
+                    case 14: cout<<setw(10)<<"King";
+                    break;
+                    default: cout<<setw(10)<<dcard1;
+                    break;
+                }
+                cout<<" and ";
+                switch (dcard2)
+                {
+                    case 11: cout<<"Ace";
+                    break;
+                    case 12: cout<<"Jack";
+                    break;
+                    case 13: cout<<"Queen";
+                    break;
+                    case 14: cout<<"King";
+                    break;
+                    default: cout<<dcard2;
+                    break;
+                }
+                if(dcard1>=12){ //jack,queen,king have a 10 value
+                    dcard1=10;}
+                if(dcard2>=12){ //jack,queen,king have a 10 value
+                    dcard2=10;}
+                dctotal=dcard1+dcard2;
+                cout<<endl;
+                cout<<"\tTotal is "<<dctotal<<endl;
+                if (dctotal<=12)
+                        {
+                            int dcard=(rand()%(14-2+1))+2;  //dealer card 3 to hit if needed
+                            cout<<"\tNew card ";
+                            switch (dcard)
+                            {
+                                case 11: cout<<"Ace";
+                                break;
+                                case 12: cout<<"Jack";
+                                break;
+                                case 13: cout<<"Queen";
+                                break;
+                                case 14: cout<<"King";
+                                break;
+                                default: cout<<dcard;
+                                break;
+                            }
+                            if(dcard>=12){      //jack,queen,king have a 10 value
+                                dcard=10;}
+                            else if(dcard==11){ //Ace has a value of 1 at the 3rd card
+                                dcard=1;}
+                            dctotal+=dcard;
+                            cout<<endl;
+                            cout<<"\tNew total is "<<dctotal<<endl;
+                        }
+        }
+        cout<<endl;
     }while(--choice>=1);
     return 0;
 }
