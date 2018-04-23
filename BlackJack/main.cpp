@@ -19,5 +19,11 @@ int main(int argc, char** argv) {
     char ch;                            //to have the user press enter between card draws
     char hit;                           //to have the user draw a 3rd card
     string name;                        //string to enter the users name
+    cout<<"\t\tBlackjack\n\n"<<endl;
+    cout<<"welcome to blackjack. What is your first name? "<<endl;
+    cin>>name;
+    cout<<"How many games would you like to play?: ";
+    cin>>choice;
+    cout<<endl;
     return 0;
 }
