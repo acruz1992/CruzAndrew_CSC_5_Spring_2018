@@ -57,7 +57,43 @@ int main(int argc, char** argv) {
                     break;
                 }
                 cout<<endl;
-        
+                if(pcard1>=12)pcard1=10; //jack,queen,king have a 10 value
+                if(pcard2>=12)pcard2=10; //jack,queen,king have a 10 value
+                pctotal=pcard1+pcard2;
+                cout<<"\tTotal is "<<pctotal<<endl;
+                if (pctotal<=20)         //if the hand has a value of 20 or less the user can request a 3rd card
+                {
+                    do
+                    {
+                        cout<<name<<", would you like to hit again? Y/N: ";
+                        cin>>hit;
+                        if (hit=='Y'||hit=='y')
+                        {
+                            int pcard=(rand()%(14-2+1))+2;  //player card 3 to hit if needed
+                            cout<<"\tNew card ";
+                            switch (pcard)
+                            {
+                                case 11: cout<<"Ace";
+                                break;
+                                case 12: cout<<"Jack";
+                                break;
+                                case 13: cout<<"Queen";
+                                break;
+                                case 14: cout<<"King";
+                                break;
+                                default: cout<<pcard;
+                                break;
+                            }
+                            if(pcard>=12){      //jack,queen,king have a 10 value
+                                pcard=10;}
+                            else if(pcard==11){ //Ace has a value of 1 at the third card
+                                pcard=1;}
+                            cout<<endl;
+                            pctotal+=pcard;     //add the third card value to the original
+                            cout<<"\tNew total is "<<pctotal<<"\n"<<endl;
+                        }
+                    }while ((!(hit=='n'||hit=='N'))||!pctotal>=21);
+                }
     }while(--choice>=1);
     return 0;
 }
